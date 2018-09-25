@@ -13,13 +13,9 @@ namespace dotnet_code_challenge
         {
             ServiceProvider serviceProvider = RegisterServices();
 
-            var feedServices = serviceProvider.GetService<IEnumerable<IFeedService>>();
-            IEnumerable<HorseDetailsModel> horses = new List<HorseDetailsModel>();
-            foreach (var feedService in feedServices)
-            {
-                horses = horses.Concat(feedService.GetHorses());
-            }
-
+            var feedAggregatorService = serviceProvider.GetService<IFeedAggregatorService>();
+            var horses = feedAggregatorService.GetAllHorsePrices();
+           
             Print(horses.OrderBy(p => p.Price));
 
             Console.ReadKey();
@@ -30,6 +26,7 @@ namespace dotnet_code_challenge
             //setup DI
             return new ServiceCollection()
 
+                .AddTransient<IFeedAggregatorService, FeedAggregatorService>()
                 .AddTransient<IFeedService, Test1>()
                 .AddTransient<IFeedService, Test2>()
                 .BuildServiceProvider();
