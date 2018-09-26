@@ -1,11 +1,9 @@
-using System;
-using Xunit;
+using dotnet_code_challenge.Models;
+using dotnet_code_challenge.Services;
 using NSubstitute;
 using Shouldly;
-using dotnet_code_challenge.Services;
-using System.Collections.Generic;
-using dotnet_code_challenge.Models;
 using System.Linq;
+using Xunit;
 
 namespace dotnet_code_challenge.Test
 {
@@ -54,7 +52,7 @@ namespace dotnet_code_challenge.Test
         }
 
         [Fact]
-        public void GetHorsePrices_ShouldReturnAllHorsePrice()
+        public void WolferhamptonFeedService_GetHorsePrices_ShouldReturnAllHorsePrice()
         {
             var allHorsePrices = _sut.GetHorses();
             allHorsePrices.ShouldNotBeNull();

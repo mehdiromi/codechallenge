@@ -1,7 +1,5 @@
-﻿using System;
+﻿using dotnet_code_challenge.Models;
 using System.Collections.Generic;
-using System.Text;
-using dotnet_code_challenge.Models;
 using System.Linq;
 namespace dotnet_code_challenge.Services
 {
@@ -11,6 +9,7 @@ namespace dotnet_code_challenge.Services
         private CaulfieldFeedModel _feedsData;
         private ISerializer _serializer;
         private const string feedFilePath = "FeedData\\Caulfield_Race1.xml";
+        //TODO: move filepath to config file
 
         public CaulfieldFeedService(ISerializer serializer)
         {

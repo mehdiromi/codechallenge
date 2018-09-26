@@ -5,11 +5,6 @@ using System.Linq;
 namespace dotnet_code_challenge.Services
 {
 
-    public interface IFeedAggregatorService
-    {
-        IEnumerable<HorseDetailsModel> GetAllHorsePrices();
-    }
-
     public class FeedAggregatorService : IFeedAggregatorService
     {
         private readonly IEnumerable<IFeedService> _feedServices;

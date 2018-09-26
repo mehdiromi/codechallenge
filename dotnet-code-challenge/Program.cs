@@ -10,15 +10,23 @@ namespace dotnet_code_challenge
     {
         static void Main(string[] args)
         {
-            ServiceProvider serviceProvider = RegisterServices();
+            try
+            {
+                ServiceProvider serviceProvider = RegisterServices();
 
-            var feedAggregatorService = serviceProvider.GetService<IFeedAggregatorService>();
+                var feedAggregatorService = serviceProvider.GetService<IFeedAggregatorService>();
 
-            var horses = feedAggregatorService.GetAllHorsePrices();
-           
-            Print(horses);
+                var horses = feedAggregatorService.GetAllHorsePrices();
 
-            Console.ReadKey();
+                Print(horses);
+            }
+            catch (Exception ex)
+            {
+                Console.Write($"There was an error while trying to run the app. {ex.Message}");
+                //TODO: add proper logging
+            }
+
+            Console.ReadKey(); //TODO: remove this line
         }
 
         private static ServiceProvider RegisterServices()

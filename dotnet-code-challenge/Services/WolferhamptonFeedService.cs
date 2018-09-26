@@ -10,6 +10,7 @@ namespace dotnet_code_challenge.Services
         private WolferhamptonFeedModel _feedsData;
         private ISerializer _serializer;
         private const string feedFilePath = "FeedData\\Wolferhampton_Race1.json";
+        //TODO: move filepath to config file
 
         public WolferhamptonFeedService(ISerializer serializer)
         {

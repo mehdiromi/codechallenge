@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 namespace dotnet_code_challenge.Services
 {
-    public interface IFeedService
+    public interface IFeedAggregatorService
     {
-        IEnumerable<HorseDetailsModel> GetHorses();
+        IEnumerable<HorseDetailsModel> GetAllHorsePrices();
     }
 }
