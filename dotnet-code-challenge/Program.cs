@@ -25,7 +25,9 @@ namespace dotnet_code_challenge
             //setup DI
             return new ServiceCollection()
 
-                .AddTransient<IFeedAggregatorService, FeedAggregatorService>()                
+                .AddTransient<IFeedAggregatorService, FeedAggregatorService>()
+                .AddTransient<ISerializer, Serializer>()
+                .AddTransient<IFeedService, WolferhamptonFeedService>()
                 .BuildServiceProvider();
         }
 
