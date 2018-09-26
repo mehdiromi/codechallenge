@@ -13,6 +13,7 @@ namespace dotnet_code_challenge
             ServiceProvider serviceProvider = RegisterServices();
 
             var feedAggregatorService = serviceProvider.GetService<IFeedAggregatorService>();
+
             var horses = feedAggregatorService.GetAllHorsePrices();
            
             Print(horses);
@@ -26,8 +27,9 @@ namespace dotnet_code_challenge
             return new ServiceCollection()
 
                 .AddTransient<IFeedAggregatorService, FeedAggregatorService>()
-                .AddTransient<ISerializer, Serializer>()
+                .AddSingleton<ISerializer, Serializer>()
                 .AddTransient<IFeedService, WolferhamptonFeedService>()
+                .AddTransient<IFeedService, CaulfieldFeedService>()
                 .BuildServiceProvider();
         }
 
