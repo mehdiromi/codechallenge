@@ -28,7 +28,7 @@ namespace dotnet_code_challenge.Services
 
             }
 
-            return horses;
+            return horses.OrderBy(p => p.Price);
         }
     }
 }
